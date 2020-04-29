@@ -12,6 +12,7 @@ namespace software_engineer
 {
     public partial class admin : Form
     {
+        string str = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
         public admin()
         {
             InitializeComponent();
@@ -40,7 +41,7 @@ namespace software_engineer
         {
             // TODO: 这行代码将数据加载到表“managerDataSet.user”中。您可以根据需要移动或删除它。
             //this.userTableAdapter.Fill(this.managerDataSet.user);
-            string testDB = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+            string testDB = str;
             conn = new SqlConnection(testDB);
             loadData();
             string[] htext = { "用户名", "密码" };

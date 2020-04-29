@@ -13,12 +13,13 @@ namespace software_engineer
  
     public partial class add : Form
     {
+        string str1 = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
         string s="男";
         public add()
         {
             InitializeComponent();
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+            con.ConnectionString = str1;
             con.Open();
             SqlCommand com = new SqlCommand("select * from manager ", con);//创建Command对象
             SqlDataReader dr = com.ExecuteReader();//执行查询
@@ -167,7 +168,7 @@ namespace software_engineer
 
         private void add_Load(object sender, EventArgs e)
         {
-            string testDB = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+            string testDB = str1;
             conn = new SqlConnection(testDB);
             loadData();
         }

@@ -13,6 +13,7 @@ namespace software_engineer
 {
     public partial class manager : Form
     {
+        string str = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
         public manager()
         {
             InitializeComponent();
@@ -114,7 +115,7 @@ namespace software_engineer
 
         private void toolStripMenuItem8_Click(object sender, EventArgs e)
         {
-            string s = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+            string s = str;
             SqlConnection con = new SqlConnection(s);
             con.Open();
             textBox1.Text = "";
@@ -151,7 +152,7 @@ namespace software_engineer
                 {
                     StreamWriter sw = new StreamWriter(fstream, System.Text.Encoding.GetEncoding("GB2312"));
 
-                    using (SqlConnection conn = new SqlConnection("Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False"))
+                    using (SqlConnection conn = new SqlConnection(str))
                     {
                         conn.Open();
                         using (SqlCommand cmd = conn.CreateCommand())
@@ -194,7 +195,7 @@ namespace software_engineer
                 {
                     using (StreamReader streamreader = new StreamReader(fileStream, readEncoding))
                     {
-                        using (SqlConnection conn = new SqlConnection("Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False")) //打开数据库连接
+                        using (SqlConnection conn = new SqlConnection(str)) //打开数据库连接
                         {
                             conn.Open();
                             string lines = null;
@@ -248,7 +249,7 @@ namespace software_engineer
 
         private void toolStripMenuItem15_Click(object sender, EventArgs e)
         {
-            string s = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+            string s = str;
             SqlConnection con = new SqlConnection(s);
             con.Open();
             textBox1.Text = "";
@@ -278,7 +279,7 @@ namespace software_engineer
 
         private void toolStripMenuItem14_Click(object sender, EventArgs e)
         {
-            string s = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+            string s = str;
             SqlConnection con = new SqlConnection(s);
             con.Open();
             textBox1.Text = "";
@@ -308,7 +309,7 @@ namespace software_engineer
 
         private void toolStripMenuItem17_Click(object sender, EventArgs e)
         {
-            string s = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+            string s = str;
             SqlConnection con = new SqlConnection(s);
             con.Open();
             textBox1.Text = "";
@@ -337,7 +338,7 @@ namespace software_engineer
 
         private void toolStripMenuItem18_Click(object sender, EventArgs e)
         {
-            string s = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+            string s = str;
             SqlConnection con = new SqlConnection(s);
             con.Open();
             textBox1.Text = "";
@@ -366,7 +367,7 @@ namespace software_engineer
 
         private void toolStripMenuItem20_Click(object sender, EventArgs e)
         {
-            string s = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+            string s = str;
             SqlConnection con = new SqlConnection(s);
             con.Open();
             textBox1.Text = "";
@@ -395,7 +396,7 @@ namespace software_engineer
 
         private void toolStripMenuItem21_Click(object sender, EventArgs e)
         {
-            string s = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+            string s = str;
             SqlConnection con = new SqlConnection(s);
             con.Open();
             textBox1.Text = "";
@@ -424,7 +425,7 @@ namespace software_engineer
 
         private void toolStripMenuItem23_Click(object sender, EventArgs e)
         {
-            string s = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+            string s = str;
             SqlConnection con = new SqlConnection(s);
             con.Open();
             textBox1.Text = "";
@@ -453,7 +454,7 @@ namespace software_engineer
 
         private void toolStripMenuItem24_Click(object sender, EventArgs e)
         {
-            string s = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+            string s = str;
             SqlConnection con = new SqlConnection(s);
             con.Open();
             textBox1.Text = "";

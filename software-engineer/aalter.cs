@@ -11,6 +11,7 @@ namespace software_engineer
 {
     public partial class aalter : Form
     {
+        string str = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
         string s="男";
         int flag = 1;
         public aalter(string str,int n)
@@ -179,7 +180,7 @@ namespace software_engineer
 
         private void aalter_Load(object sender, EventArgs e)
         {
-            string testDB = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+            string testDB = str;
             conn = new SqlConnection(testDB);
         
         }

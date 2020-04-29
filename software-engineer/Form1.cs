@@ -13,7 +13,7 @@ namespace software_engineer
   
     public partial class Form1 : Form
     {
-
+        string str = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
         public static string username;
         public static string password;
         public Form1()
@@ -35,7 +35,7 @@ namespace software_engineer
         private void button1_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+            con.ConnectionString = str;
             con.Open();
 
             string userid = this.textBox1.Text;
@@ -49,7 +49,7 @@ namespace software_engineer
                 }
                 else//用户名或密码不为空
                 {
-                    string connectionString = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+                    string connectionString = str;
                     SqlConnection SqlCon = new SqlConnection(connectionString); //数据库连接
                     SqlCon.Open(); //打开数据库
                     string sql = "Select * from admin where aid='" + userid + "' and apwd='" + password + "'";//查找用户sql语句
@@ -85,7 +85,7 @@ namespace software_engineer
                 }
                 else//用户名或密码不为空
                 {
-                    string connectionString = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+                    string connectionString = str;
                     SqlConnection SqlCon = new SqlConnection(connectionString); //数据库连接
                     SqlCon.Open(); //打开数据库
                     string sql = "Select * from [user] where uid='" + userid + "' and upwd='" + password + "'";//查找用户sql语句

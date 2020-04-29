@@ -11,6 +11,7 @@ namespace software_engineer
 {
     public partial class delete : Form
     {
+        string str = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
         public delete()
         {
             InitializeComponent();
@@ -128,7 +129,7 @@ namespace software_engineer
 
         private void delete_Load(object sender, EventArgs e)
         {
-            string testDB = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+            string testDB = str;
             conn = new SqlConnection(testDB);
         }
     }

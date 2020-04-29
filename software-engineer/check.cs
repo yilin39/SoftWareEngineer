@@ -11,7 +11,7 @@ namespace software_engineer
 {
     public partial class check : Form
     {
-        
+        string str = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
         public check()
         {
             InitializeComponent();
@@ -34,7 +34,7 @@ namespace software_engineer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string s = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+            string s = str;
             SqlConnection con = new SqlConnection(s);
             con.Open();
             manager f1 = (manager)this.Owner;

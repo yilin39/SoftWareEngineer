@@ -11,6 +11,7 @@ namespace software_engineer
 {
     public partial class salary : Form
     {
+        string str = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
         public salary()
         {
             InitializeComponent();
@@ -77,7 +78,7 @@ namespace software_engineer
             int a = Convert.ToInt32(monday);
             int b = Convert.ToInt32(insurance);
             int c = Convert.ToInt32(monsalary);
-            string s = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+            string s = str;
             SqlConnection con = new SqlConnection(s);
             con.Open();
             string sql = string.Format("select * from manager where id='{0}'", textBox1.Text);
@@ -138,13 +139,13 @@ namespace software_engineer
         }
         private void salary_Load(object sender, EventArgs e)
         {
-            string testDB = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+            string testDB = str;
             conn = new SqlConnection(testDB);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string s = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+            string s = str;
             SqlConnection con = new SqlConnection(s);
             con.Open();
             manager f1 = (manager)this.Owner;
