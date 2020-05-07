@@ -34,3 +34,5 @@ D:\gitre\SoftWareEngineer\software-engineer\obj\Debug\software-engineer.csproj.G
 D:\gitre\SoftWareEngineer\software-engineer\obj\Debug\software-engineer.csproj.CoreCompileInputs.cache
 D:\gitre\SoftWareEngineer\software-engineer\obj\Debug\software-engineer.exe
 D:\gitre\SoftWareEngineer\software-engineer\obj\Debug\software-engineer.pdb
+D:\gitre\SoftWareEngineer\software-engineer\bin\Debug\IrisSkin4.dll
+D:\gitre\SoftWareEngineer\software-engineer\obj\Debug\software-engineer.csproj.CopyComplete

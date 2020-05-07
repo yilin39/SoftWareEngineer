@@ -488,5 +488,12 @@ namespace software_engineer
                 textBox1.Text += String.Format("***********************************************************************************\r\n");
             }
         }
+
+        private void toolStripMenuItem28_Click(object sender, EventArgs e)
+        {
+            Form1 a = new Form1();
+            this.Hide();
+            a.ShowDialog();
+        }
     }
     }

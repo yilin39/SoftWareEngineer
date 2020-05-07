@@ -190,7 +190,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(484, 357);
+            this.button1.Location = new System.Drawing.Point(489, 357);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(119, 31);
             this.button1.TabIndex = 14;
@@ -212,6 +212,7 @@
             // 
             this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(213, 29);
+            this.textBox1.MaxLength = 30;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 25);
             this.textBox1.TabIndex = 16;
@@ -220,13 +221,17 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(213, 84);
+            this.textBox2.MaxLength = 20;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 25);
             this.textBox2.TabIndex = 17;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(213, 145);
+            this.textBox3.MaxLength = 30;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 25);
             this.textBox3.TabIndex = 18;
@@ -234,6 +239,7 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(213, 205);
+            this.textBox4.MaxLength = 30;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 25);
             this.textBox4.TabIndex = 19;
@@ -241,14 +247,17 @@
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(213, 268);
+            this.textBox5.MaxLength = 12;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 25);
             this.textBox5.TabIndex = 20;
             this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            this.textBox5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox5_KeyPress);
             // 
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(213, 314);
+            this.textBox6.MaxLength = 31;
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(100, 25);
             this.textBox6.TabIndex = 21;
@@ -257,6 +266,7 @@
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(213, 389);
+            this.textBox7.MaxLength = 31;
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(100, 25);
             this.textBox7.TabIndex = 22;

@@ -5,3 +5,4 @@
 如string str = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
 修改点位于各个cs程序（总共8个）位于面向对象类的最开头，修改完毕即可正常运行。
 3、注该软件为C/S架构，非B/S架构，已于老师说明。
+4、客户端和或服务端安装有问题，请联系 计算机174厉乐镔   电话：17326088628

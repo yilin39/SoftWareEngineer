@@ -41,7 +41,12 @@ namespace software_engineer
             f1.Controls["textBox1"].Text = "";
             if (radioButton2.Checked)
             {
-              
+
+                DialogResult dr = MessageBox.Show("是否查询用户【" + this.textBox1.Text + "】", "查询", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(textBox1.Text=="")
+                {
+                    MessageBox.Show("请输入用户编号");
+                }
                 string sql = string.Format("select * from manager where id='{0}'", textBox1.Text);
                 SqlCommand command = new SqlCommand(sql, con);
 
@@ -67,6 +72,12 @@ namespace software_engineer
 
             else
             {
+
+                DialogResult dr = MessageBox.Show("是否查询用户【" + this.textBox1.Text + "】", "查询", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (textBox1.Text == "")
+                {
+                    MessageBox.Show("请输入用户姓名");
+                }
                 string sql = string.Format("select * from manager where name='{0}'", textBox1.Text);
                 SqlCommand command = new SqlCommand(sql, con);
 

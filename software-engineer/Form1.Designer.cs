@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine();
             this.SuspendLayout();
             // 
             // button1
@@ -90,6 +91,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(375, 171);
+            this.textBox1.MaxLength = 30;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(135, 25);
             this.textBox1.TabIndex = 6;
@@ -97,11 +99,21 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(375, 237);
+            this.textBox2.MaxLength = 30;
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(135, 25);
             this.textBox2.TabIndex = 7;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // skinEngine1
+            // 
+            this.skinEngine1.@__DrawButtonFocusRectangle = true;
+            this.skinEngine1.DisabledButtonTextColor = System.Drawing.Color.Gray;
+            this.skinEngine1.DisabledMenuFontColor = System.Drawing.SystemColors.GrayText;
+            this.skinEngine1.InactiveCaptionColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.skinEngine1.SerialNumber = "";
+            this.skinEngine1.SkinFile = null;
             // 
             // Form1
             // 
@@ -116,7 +128,8 @@
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "工程师管理系统";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -132,6 +145,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private Sunisoft.IrisSkin.SkinEngine skinEngine1;
     }
 }
 

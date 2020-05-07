@@ -199,5 +199,12 @@ namespace software_engineer
             }
             loadData();
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form1 a = new Form1();
+            this.Hide();
+            a.ShowDialog();
+        }
     }
 }

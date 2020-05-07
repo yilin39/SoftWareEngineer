@@ -51,6 +51,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine();
             this.SuspendLayout();
             // 
             // label1
@@ -65,6 +66,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(154, 59);
+            this.textBox1.MaxLength = 30;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 25);
             this.textBox1.TabIndex = 17;
@@ -127,13 +129,17 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(154, 113);
+            this.textBox2.MaxLength = 20;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 25);
             this.textBox2.TabIndex = 24;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(154, 181);
+            this.textBox3.MaxLength = 30;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 25);
             this.textBox3.TabIndex = 25;
@@ -141,6 +147,7 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(154, 242);
+            this.textBox4.MaxLength = 30;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 25);
             this.textBox4.TabIndex = 26;
@@ -148,6 +155,7 @@
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(154, 298);
+            this.textBox5.MaxLength = 11;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 25);
             this.textBox5.TabIndex = 27;
@@ -156,6 +164,7 @@
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(154, 350);
+            this.textBox6.MaxLength = 31;
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(100, 25);
             this.textBox6.TabIndex = 28;
@@ -164,9 +173,11 @@
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(154, 398);
+            this.textBox7.MaxLength = 31;
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(100, 25);
             this.textBox7.TabIndex = 29;
+            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // label8
             // 
@@ -258,6 +269,15 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // skinEngine1
+            // 
+            this.skinEngine1.@__DrawButtonFocusRectangle = true;
+            this.skinEngine1.DisabledButtonTextColor = System.Drawing.Color.Gray;
+            this.skinEngine1.DisabledMenuFontColor = System.Drawing.SystemColors.GrayText;
+            this.skinEngine1.InactiveCaptionColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.skinEngine1.SerialNumber = "";
+            this.skinEngine1.SkinFile = null;
+            // 
             // aalter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -319,5 +339,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private Sunisoft.IrisSkin.SkinEngine skinEngine1;
     }
 }

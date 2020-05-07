@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 namespace software_engineer
 {
     public partial class aalter : Form
@@ -182,26 +183,45 @@ namespace software_engineer
         {
             string testDB = str;
             conn = new SqlConnection(testDB);
-        
+            skinEngine1.SkinFile = Application.StartupPath + @"/Skins/MP10.ssk";
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
             int tmp;
+           
             if (!int.TryParse(textBox5.Text, out tmp) && !textBox5.Equals(""))
             {
                 if (textBox5.Text != "")
-                    MessageBox.Show("工龄应为数字：");
+                {
+                    MessageBox.Show("电话应为数字：且不大于11位");
+                    textBox5.Text = "";
+                }
             }
         }
 
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
+                if (int.Parse(textBox6.Text) > 50 || int.Parse(textBox6.Text) < 0)
+                {
+                    MessageBox.Show("数字应在0-50之间");
+                    textBox6.Text = "";
+                }
+            }
+            catch (Exception)
+            {
+
+            }
             int tmp;
             if (!int.TryParse(textBox6.Text, out tmp) && !textBox6.Equals(""))
             {
                 if (textBox6.Text != "")
-                    MessageBox.Show("工龄应为数字：");
+                {
+                    MessageBox.Show("工龄应为数字：且不大于30位");
+                    textBox6.Text = "";
+                }
             }
         }
 
@@ -211,8 +231,11 @@ namespace software_engineer
             if (!int.TryParse(textBox7.Text, out tmp) && !textBox7.Equals(""))
             {
                 if (textBox7.Text != "")
-                    MessageBox.Show("基本薪水应为数字：");
-            }
+                {
+                    MessageBox.Show("基本薪水应为数字：且不大于30位");
+                    textBox7.Text = "";
+                }
+                }
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
@@ -223,6 +246,26 @@ namespace software_engineer
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton1.Checked) s = "女";
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Regex rg = new Regex("^[\u4e00-\u9fa5]$");  //正则表达式
+            if (!rg.IsMatch(e.KeyChar.ToString()) && e.KeyChar != '\b') //'\b'是退格键
+            {
+
+                e.Handled = true;
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

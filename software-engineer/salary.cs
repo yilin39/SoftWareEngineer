@@ -37,11 +37,27 @@ namespace software_engineer
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             int tmp1;
+
             if (!int.TryParse(textBox2.Text, out tmp1) && !textBox2.Equals(""))
             {
+                try
+                {
+                    if (int.Parse(textBox2.Text) > 30 || int.Parse(textBox2.Text) < 0)
+                    {
+                        MessageBox.Show("数字应在0-30之间 ");
+                        textBox2.Text = "";
+                    }
+                }
+                catch (Exception)
+                {
+
+                }
                 if (textBox2.Text != "")
+                {
                     MessageBox.Show("月工作天数应为数字：");
-            }
+                    textBox2.Text = "";
+                }
+                }
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -50,7 +66,10 @@ namespace software_engineer
             if (!int.TryParse(textBox3.Text, out tmp1) && !textBox3.Equals(""))
             {
                 if (textBox3.Text != "")
+                {
                     MessageBox.Show("月收益金额应为数字：");
+                    textBox3.Text = "";
+                }
             }
         }
 
@@ -60,8 +79,11 @@ namespace software_engineer
             if (!int.TryParse(textBox4.Text, out tmp1) && !textBox4.Equals(""))
             {
                 if (textBox4.Text != "")
+                {
                     MessageBox.Show("月保险金额应为数字：");
-            }
+                    textBox4.Text = "";
+                }
+                }
         }
 
         private void button3_Click(object sender, EventArgs e)

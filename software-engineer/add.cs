@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
+using System.Text.RegularExpressions;
 namespace software_engineer
 {
- 
+
     public partial class add : Form
     {
         string str1 = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
-        string s="男";
+        string s = "男";
         public add()
         {
             InitializeComponent();
@@ -26,16 +26,17 @@ namespace software_engineer
             string str = "";
             while (dr.Read())
             {
-                str = dr[0].ToString() ;
+                str = dr[0].ToString();
             }
+            if (str == "") str = "0";
             int n = Convert.ToInt32(str) + 1;
-            textBox1.Text = "00"+Convert.ToString(n);
+            textBox1.Text = "00" + Convert.ToString(n);
         }
-      
+
         SqlConnection conn;
         SqlDataAdapter sda;
         SqlCommand cmd;
-       
+
         private void loadData()
         {
             sda = new SqlDataAdapter("select * from manager", conn);
@@ -52,9 +53,9 @@ namespace software_engineer
             string age = textBox6.Text.Trim();
             string sex = s;
             string salary = textBox7.Text.Trim();
-            string date= dateTimePicker1.Value.Date.ToLongDateString();
+            string date = dateTimePicker1.Value.Date.ToLongDateString();
             string education = comboBox1.SelectedItem.ToString();
-            
+
             cmd = conn.CreateCommand();
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Parameters.AddWithValue("@name", name);
@@ -91,7 +92,7 @@ namespace software_engineer
             string phone = textBox5.Text.Trim();
             string age = textBox6.Text.Trim();
             string salary = textBox7.Text.Trim();
-            string sex=s;
+            string sex = s;
             string date = dateTimePicker1.Value.Date.ToLongDateString();
             string education = comboBox1.Text;
             try
@@ -124,12 +125,14 @@ namespace software_engineer
                 }
                 else
                 {
-                    if ( name.Equals("")||native.Equals("")||adress.Equals("")||phone.Equals("")||age.Equals("")||salary.Equals("")||education.Equals(""))
+                    DialogResult dr = MessageBox.Show("是否添加用户【" + this.textBox1.Text + "】", "修改", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (name.Equals("") || native.Equals("") || adress.Equals("") || phone.Equals("") || age.Equals("") || salary.Equals("") || education.Equals(""))
                     {
                         MessageBox.Show("工程师信息不完善");
                     }
                     else
                     {
+
                         //关闭读取器
                         reader.Close();
                         cmd.CommandText = "insert into  [manager](id,name,native,adress,phone,age,salary,sex,date,education,allsalary,monday,insurance,monsalary) values(@id,@name,@native,@adress,@phone,@age,@salary,@sex,@date,@education,0,0,0,0)";
@@ -137,7 +140,7 @@ namespace software_engineer
                         int rowCount = cmd.ExecuteNonQuery();
                         if (rowCount == 1) //Update、Insert和Delete返回1，其他返回-1
                         {
-                            
+
                             MessageBox.Show("工程师【" + this.textBox1.Text + "】添加成功！");
                             this.textBox2.Text = "";
                             this.textBox3.Text = "";
@@ -163,7 +166,7 @@ namespace software_engineer
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton2.Checked)  s = "男";
+            if (radioButton2.Checked) s = "男";
         }
 
         private void add_Load(object sender, EventArgs e)
@@ -175,42 +178,100 @@ namespace software_engineer
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
             int tmp;
-            if (!int.TryParse(textBox5.Text, out tmp)&&!textBox5.Equals(""))
+            if (!int.TryParse(textBox5.Text, out tmp) && !textBox5.Equals(""))
             {
                 if (textBox5.Text != "")
-                    MessageBox.Show("工龄应为数字：");
+                {
+                    MessageBox.Show("电话应为数字：且不大于30位");
+                    textBox5.Text = "";
+                }
             }
+
+        }
+
+        private void textBox6_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+            if ((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == (char)8)
+            {
+                e.Handled = false;
+            }
+
         }
 
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
+
             int tmp1;
-            if (!int.TryParse(textBox6.Text, out tmp1)&&!textBox6.Equals(""))
+            try
+            {
+                if (int.Parse(textBox6.Text) > 50 || int.Parse(textBox6.Text) < 0)
+                {
+                    MessageBox.Show("数字应在0-50之间 且不大于11位");
+                    textBox6.Text = "";
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            if (!int.TryParse(textBox6.Text, out tmp1) && !textBox6.Equals(""))
             {
                 if (textBox6.Text != "")
-                    MessageBox.Show("电话应为数字：");
+                {
+                    MessageBox.Show("工龄应为数字：且不大于30位");
+                    textBox6.Text = "";
+                }
             }
+
+
         }
 
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
             int tmp2;
+
             if (!int.TryParse(textBox7.Text, out tmp2))
             {
-                if(textBox7.Text!="")
-                MessageBox.Show("薪水应为数字：（RMB）");
+                if (textBox7.Text != "")
+                {
+                    MessageBox.Show("薪水应为数字：（RMB）");
+                    textBox7.Text = "";
+                }
             }
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton1.Checked) s = "女";
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Regex rg = new Regex("^[\u4e00-\u9fa5]$");  //正则表达式
+            if (!rg.IsMatch(e.KeyChar.ToString()) && e.KeyChar != '\b') //'\b'是退格键
+            {
+
+                e.Handled = true;
+            }
+
+        }
+
+        private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            
         }
     }
 }
