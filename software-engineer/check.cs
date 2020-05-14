@@ -67,7 +67,13 @@ namespace software_engineer
                     f1.Controls["textBox1"].Text += String.Format("编号：{0}\r\n姓名：{1}\r\n性别:{2}\r\n籍贯：{3}\r\n出生日期：{4}\r\n学历：{5}\r\n住址：{6}\r\n电话：{7}\r\n工龄：{8}\r\n基本工资{9}\r\n", id, name, sex,native,date,education, adress, phone,age,
                         salary);
                     f1.Controls["textBox1"].Text += String.Format("**************************************************************************************************\r\n");
+                  
                 }
+                if (f1.Controls["textBox1"].Text.Equals(""))
+                {
+                    MessageBox.Show("该用户不存在！");
+                }
+              
             }
 
             else
@@ -97,6 +103,10 @@ namespace software_engineer
                     f1.Controls["textBox1"].Text += String.Format("编号：{0}\r\n姓名：{1}\r\n性别:{2}\r\n籍贯：{3}\r\n出生日期：{4}\r\n学历：{5}\r\n住址：{6}\r\n电话：{7}\r\n工龄：{8}\r\n基本工资{9}\r\n", id, name, sex, native, date, education, adress, phone, age,
                            salary);
                     f1.Controls["textBox1"].Text += String.Format("**************************************************************************************************\r\n");
+                }
+                if (f1.Controls["textBox1"].Text.Equals(""))
+                {
+                    MessageBox.Show("该用户不存在！");
                 }
             }
            

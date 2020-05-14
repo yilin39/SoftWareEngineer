@@ -25,18 +25,22 @@ namespace software_engineer
             SqlDataReader dr = com.ExecuteReader();//执行查询
             string str = "";
             string max = "";
+            int x1 = 0,x2=0;
             while (dr.Read())
             {
-                str = dr[0].ToString();
-                if(max=="")
+                str = dr[0].ToString().Trim();
+                 x1=Convert.ToInt32(str);
+                if (max=="")
                 {
-                    max = str;
+                    max = str.Trim();
+                    x2 = Convert.ToInt32(max);
                 }
                 else
                 {
-                    if(str.CompareTo(max)>0)
+                    if(x1>x2)
                     {
-                        max = str;
+                        max = str.Trim();
+                        x2 = Convert.ToInt32(max);
                     }
                 }
             }
@@ -162,6 +166,7 @@ namespace software_engineer
                             this.textBox6.Text = "";
                             this.textBox7.Text = "";
                             reader.Close();
+                            this.Close();
                         }
                     }
                 }
@@ -197,7 +202,7 @@ namespace software_engineer
             if (!int.TryParse(textBox5.Text, out tmp)&& !textBox5.Equals(""))
             {
                 
-                    MessageBox.Show("电话应为数字：且不大于11位");
+                   // MessageBox.Show("电话应为数字：且不大于11位");
                    
                 
             }

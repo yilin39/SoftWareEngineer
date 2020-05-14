@@ -39,7 +39,7 @@ namespace software_engineer
             int tmp1;
             try
             {
-                if (int.Parse(textBox2.Text) > 32 || int.Parse(textBox2.Text) < 0)
+                if (int.Parse(textBox2.Text) > 31 || int.Parse(textBox2.Text) < 0)
                 {
                     MessageBox.Show("月工作天数应在0-31之间 ");
                     textBox2.Text = "";
@@ -66,7 +66,7 @@ namespace software_engineer
             if (!int.TryParse(textBox3.Text, out tmp1) && !textBox3.Equals(""))
             {
                 
-                    MessageBox.Show("月收益金额应为数字：且不大于30位");
+                  //  MessageBox.Show("月收益金额应为数字：且不大于30位");
                    
                 
             }
@@ -78,7 +78,7 @@ namespace software_engineer
             if (!int.TryParse(textBox4.Text, out tmp1) && !textBox4.Equals(""))
             {
                
-                    MessageBox.Show("月保险金额应为数字：且不大于30位");
+                 //   MessageBox.Show("月保险金额应为数字：且不大于30位");
                     
                 
                 }
@@ -157,7 +157,7 @@ namespace software_engineer
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("该工程师不存在，请重新检查编号");
                 }
                 finally
                 {

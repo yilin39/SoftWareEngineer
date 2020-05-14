@@ -16,6 +16,7 @@ namespace software_engineer
         string str = PublicValue.ssql;
         public static string username;
         public static string password;
+        int flag = 0;
         public Form1()
         {
             InitializeComponent();
@@ -42,12 +43,12 @@ namespace software_engineer
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-           
+            flag = 1;
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-           
+            flag = 2;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -58,7 +59,10 @@ namespace software_engineer
 
             string userid = this.textBox1.Text;
             string password = this.textBox2.Text;
-           
+           if(flag==0)
+            {
+                MessageBox.Show("请选择登陆项：管理员或用户");
+            }
             if (radioButton2.Checked)
             {
 
