@@ -13,7 +13,8 @@ namespace software_engineer
 {
     public partial class manager : Form
     {
-        string str = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+        
+        string str = PublicValue.ssql;
         public manager()
         {
             InitializeComponent();
@@ -70,12 +71,12 @@ namespace software_engineer
 
         private void toolStripMenuItem26_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("对本软件有任何疑问，请联系技术支持——计算机174 厉乐镔");
+            MessageBox.Show("对本软件有任何疑问，请联系技术支持——********（来自一个无名之辈的呢喃）");
         }
 
         private void toolStripMenuItem27_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("版本N.0\n本产品由计算机174——u1s1团队耗资一个星期打造，版权归U1S1团队所有\n如有疑问，请联系——计算机174 厉乐镔");
+            MessageBox.Show("版本N.0\n本产品由u1s1团队耗资三个星期打造，版权归U1S1团队所有\n如有疑问，请联系技术支持——********（来自一个连呢喃的忘了的无名之辈）");
         }
 
         private void toolStripMenuItem9_Click(object sender, EventArgs e)

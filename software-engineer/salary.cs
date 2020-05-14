@@ -11,7 +11,7 @@ namespace software_engineer
 {
     public partial class salary : Form
     {
-        string str = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+        string str = PublicValue.ssql;
         public salary()
         {
             InitializeComponent();
@@ -37,27 +37,27 @@ namespace software_engineer
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             int tmp1;
+            try
+            {
+                if (int.Parse(textBox2.Text) > 32 || int.Parse(textBox2.Text) < 0)
+                {
+                    MessageBox.Show("月工作天数应在0-31之间 ");
+                    textBox2.Text = "";
+                }
+            }
+            catch (Exception)
+            {
 
+            }
             if (!int.TryParse(textBox2.Text, out tmp1) && !textBox2.Equals(""))
             {
-                try
-                {
-                    if (int.Parse(textBox2.Text) > 30 || int.Parse(textBox2.Text) < 0)
-                    {
-                        MessageBox.Show("数字应在0-30之间 ");
-                        textBox2.Text = "";
-                    }
-                }
-                catch (Exception)
-                {
-
-                }
                 if (textBox2.Text != "")
                 {
                     MessageBox.Show("月工作天数应为数字：");
                     textBox2.Text = "";
                 }
-                }
+            }
+
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -65,11 +65,10 @@ namespace software_engineer
             int tmp1;
             if (!int.TryParse(textBox3.Text, out tmp1) && !textBox3.Equals(""))
             {
-                if (textBox3.Text != "")
-                {
-                    MessageBox.Show("月收益金额应为数字：");
-                    textBox3.Text = "";
-                }
+                
+                    MessageBox.Show("月收益金额应为数字：且不大于30位");
+                   
+                
             }
         }
 
@@ -78,11 +77,10 @@ namespace software_engineer
             int tmp1;
             if (!int.TryParse(textBox4.Text, out tmp1) && !textBox4.Equals(""))
             {
-                if (textBox4.Text != "")
-                {
-                    MessageBox.Show("月保险金额应为数字：");
-                    textBox4.Text = "";
-                }
+               
+                    MessageBox.Show("月保险金额应为数字：且不大于30位");
+                    
+                
                 }
         }
 
@@ -97,9 +95,18 @@ namespace software_engineer
             string monday = textBox2.Text.Trim();
             string monsalary = textBox3.Text.Trim();
             string insurance = textBox4.Text.Trim();
-            int a = Convert.ToInt32(monday);
-            int b = Convert.ToInt32(insurance);
-            int c = Convert.ToInt32(monsalary);
+            int a=0 , b=0, c=0 ;
+            try
+            {
+               
+                a = Convert.ToInt32(monday);
+                b = Convert.ToInt32(insurance);
+                c = Convert.ToInt32(monsalary);
+            }
+           catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             string s = str;
             SqlConnection con = new SqlConnection(s);
             con.Open();
@@ -187,6 +194,27 @@ namespace software_engineer
                 }
             this.Close();
             
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && !Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && !Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

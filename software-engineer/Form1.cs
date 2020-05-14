@@ -13,7 +13,7 @@ namespace software_engineer
   
     public partial class Form1 : Form
     {
-        string str = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+        string str = PublicValue.ssql;
         public static string username;
         public static string password;
         public Form1()

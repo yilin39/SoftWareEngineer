@@ -11,7 +11,7 @@ namespace software_engineer
 {
     public partial class check : Form
     {
-        string str = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+        string str = PublicValue.ssql;
         public check()
         {
             InitializeComponent();
@@ -100,6 +100,11 @@ namespace software_engineer
                 }
             }
            
+        }
+
+        private void check_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

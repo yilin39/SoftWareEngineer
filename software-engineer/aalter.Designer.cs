@@ -52,6 +52,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine();
+            this.skinEngine2 = new Sunisoft.IrisSkin.SkinEngine();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -68,8 +72,9 @@
             this.textBox1.Location = new System.Drawing.Point(154, 59);
             this.textBox1.MaxLength = 30;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 25);
+            this.textBox1.Size = new System.Drawing.Size(109, 25);
             this.textBox1.TabIndex = 17;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label2
             // 
@@ -131,7 +136,7 @@
             this.textBox2.Location = new System.Drawing.Point(154, 113);
             this.textBox2.MaxLength = 20;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 25);
+            this.textBox2.Size = new System.Drawing.Size(109, 25);
             this.textBox2.TabIndex = 24;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
@@ -141,15 +146,16 @@
             this.textBox3.Location = new System.Drawing.Point(154, 181);
             this.textBox3.MaxLength = 30;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 25);
+            this.textBox3.Size = new System.Drawing.Size(109, 25);
             this.textBox3.TabIndex = 25;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(154, 242);
             this.textBox4.MaxLength = 30;
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 25);
+            this.textBox4.Size = new System.Drawing.Size(109, 25);
             this.textBox4.TabIndex = 26;
             // 
             // textBox5
@@ -157,27 +163,29 @@
             this.textBox5.Location = new System.Drawing.Point(154, 298);
             this.textBox5.MaxLength = 11;
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 25);
+            this.textBox5.Size = new System.Drawing.Size(109, 25);
             this.textBox5.TabIndex = 27;
             this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            this.textBox5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox5_KeyPress);
             // 
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(154, 350);
-            this.textBox6.MaxLength = 31;
+            this.textBox6.MaxLength = 30;
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 25);
+            this.textBox6.Size = new System.Drawing.Size(109, 25);
             this.textBox6.TabIndex = 28;
             this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(154, 398);
-            this.textBox7.MaxLength = 31;
+            this.textBox7.Location = new System.Drawing.Point(154, 391);
+            this.textBox7.MaxLength = 30;
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 25);
+            this.textBox7.Size = new System.Drawing.Size(109, 25);
             this.textBox7.TabIndex = 29;
             this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
+            this.textBox7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox7_KeyPress);
             // 
             // label8
             // 
@@ -278,11 +286,50 @@
             this.skinEngine1.SerialNumber = "";
             this.skinEngine1.SkinFile = null;
             // 
+            // skinEngine2
+            // 
+            this.skinEngine2.@__DrawButtonFocusRectangle = true;
+            this.skinEngine2.DisabledButtonTextColor = System.Drawing.Color.Gray;
+            this.skinEngine2.DisabledMenuFontColor = System.Drawing.SystemColors.GrayText;
+            this.skinEngine2.InactiveCaptionColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.skinEngine2.SerialNumber = "";
+            this.skinEngine2.SkinFile = null;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(158, 148);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(105, 15);
+            this.label11.TabIndex = 39;
+            this.label11.Text = "姓名应为中文";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(158, 332);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(112, 15);
+            this.label12.TabIndex = 40;
+            this.label12.Text = "电话应为数字：";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(151, 426);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(152, 15);
+            this.label13.TabIndex = 41;
+            this.label13.Text = "薪水应为数字：(RMB)";
+            // 
             // aalter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
@@ -340,5 +387,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private Sunisoft.IrisSkin.SkinEngine skinEngine1;
+        private Sunisoft.IrisSkin.SkinEngine skinEngine2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }

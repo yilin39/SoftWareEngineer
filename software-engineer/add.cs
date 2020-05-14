@@ -13,7 +13,7 @@ namespace software_engineer
 
     public partial class add : Form
     {
-        string str1 = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+        string str1 = PublicValue.ssql;
         string s = "男";
         public add()
         {
@@ -24,10 +24,23 @@ namespace software_engineer
             SqlCommand com = new SqlCommand("select * from manager ", con);//创建Command对象
             SqlDataReader dr = com.ExecuteReader();//执行查询
             string str = "";
+            string max = "";
             while (dr.Read())
             {
                 str = dr[0].ToString();
+                if(max=="")
+                {
+                    max = str;
+                }
+                else
+                {
+                    if(str.CompareTo(max)>0)
+                    {
+                        max = str;
+                    }
+                }
             }
+            str = max;
             if (str == "") str = "0";
             int n = Convert.ToInt32(str) + 1;
             textBox1.Text = "00" + Convert.ToString(n);
@@ -176,21 +189,17 @@ namespace software_engineer
             loadData();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
             int tmp;
-            if (!int.TryParse(textBox5.Text, out tmp) && !textBox5.Equals(""))
+            if (!int.TryParse(textBox5.Text, out tmp)&& !textBox5.Equals(""))
             {
-                if (textBox5.Text != "")
-                {
-                    MessageBox.Show("电话应为数字：且不大于30位");
-                    textBox5.Text = "";
-                }
+                
+                    MessageBox.Show("电话应为数字：且不大于11位");
+                   
+                
             }
 
         }
@@ -213,7 +222,7 @@ namespace software_engineer
             {
                 if (int.Parse(textBox6.Text) > 50 || int.Parse(textBox6.Text) < 0)
                 {
-                    MessageBox.Show("数字应在0-50之间 且不大于11位");
+                    MessageBox.Show("数字应在0-50之间 ");
                     textBox6.Text = "";
                 }
             }
@@ -225,7 +234,7 @@ namespace software_engineer
             {
                 if (textBox6.Text != "")
                 {
-                    MessageBox.Show("工龄应为数字：且不大于30位");
+                    //MessageBox.Show("工龄应为数字：且不大于30位");
                     textBox6.Text = "";
                 }
             }
@@ -239,11 +248,10 @@ namespace software_engineer
 
             if (!int.TryParse(textBox7.Text, out tmp2))
             {
-                if (textBox7.Text != "")
-                {
-                    MessageBox.Show("薪水应为数字：（RMB）");
-                    textBox7.Text = "";
-                }
+                
+                  //  MessageBox.Show("薪水应为数字：（RMB）");
+                    
+                
             }
         }
 
@@ -270,7 +278,23 @@ namespace software_engineer
 
         private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
+            if (e.KeyChar != 8 && !Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox7_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && !Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
             
         }
     }

@@ -12,7 +12,7 @@ namespace software_engineer
 {
     public partial class aalter : Form
     {
-        string str = "Server=LAPTOP-58BBPOQL\\SQLEXPRESS;database=manager;uid=sa;pwd=123456;Persist Security Info=False";
+        string str = PublicValue.ssql;
         string s="男";
         int flag = 1;
         public aalter(string str,int n)
@@ -192,11 +192,10 @@ namespace software_engineer
            
             if (!int.TryParse(textBox5.Text, out tmp) && !textBox5.Equals(""))
             {
-                if (textBox5.Text != "")
-                {
-                    MessageBox.Show("电话应为数字：且不大于11位");
-                    textBox5.Text = "";
-                }
+                
+                   MessageBox.Show("电话应为数字：且不大于11位");
+                   
+                
             }
         }
 
@@ -219,7 +218,7 @@ namespace software_engineer
             {
                 if (textBox6.Text != "")
                 {
-                    MessageBox.Show("工龄应为数字：且不大于30位");
+                   // MessageBox.Show("工龄应为数字：且不大于30位");
                     textBox6.Text = "";
                 }
             }
@@ -227,15 +226,7 @@ namespace software_engineer
 
         private void label7_Click(object sender, EventArgs e)
         {
-            int tmp;
-            if (!int.TryParse(textBox7.Text, out tmp) && !textBox7.Equals(""))
-            {
-                if (textBox7.Text != "")
-                {
-                    MessageBox.Show("基本薪水应为数字：且不大于30位");
-                    textBox7.Text = "";
-                }
-                }
+            
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
@@ -250,7 +241,14 @@ namespace software_engineer
 
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
-
+            int tmp;
+            if (!int.TryParse(textBox7.Text, out tmp) && !textBox7.Equals(""))
+            {
+                
+                  //  MessageBox.Show("基本薪水应为数字：且不大于30位");
+                    
+                
+            }
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
@@ -264,6 +262,32 @@ namespace software_engineer
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && !Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox7_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && !Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

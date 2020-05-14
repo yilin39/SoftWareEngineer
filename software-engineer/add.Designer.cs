@@ -51,6 +51,9 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -111,7 +114,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(84, 389);
+            this.label7.Location = new System.Drawing.Point(76, 382);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(75, 15);
             this.label7.TabIndex = 6;
@@ -214,7 +217,7 @@
             this.textBox1.Location = new System.Drawing.Point(213, 29);
             this.textBox1.MaxLength = 30;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 25);
+            this.textBox1.Size = new System.Drawing.Size(110, 25);
             this.textBox1.TabIndex = 16;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -223,7 +226,7 @@
             this.textBox2.Location = new System.Drawing.Point(213, 84);
             this.textBox2.MaxLength = 20;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 25);
+            this.textBox2.Size = new System.Drawing.Size(110, 25);
             this.textBox2.TabIndex = 17;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
@@ -233,7 +236,7 @@
             this.textBox3.Location = new System.Drawing.Point(213, 145);
             this.textBox3.MaxLength = 30;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 25);
+            this.textBox3.Size = new System.Drawing.Size(110, 25);
             this.textBox3.TabIndex = 18;
             // 
             // textBox4
@@ -241,42 +244,72 @@
             this.textBox4.Location = new System.Drawing.Point(213, 205);
             this.textBox4.MaxLength = 30;
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 25);
+            this.textBox4.Size = new System.Drawing.Size(110, 25);
             this.textBox4.TabIndex = 19;
             // 
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(213, 268);
-            this.textBox5.MaxLength = 12;
+            this.textBox5.MaxLength = 11;
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 25);
+            this.textBox5.Size = new System.Drawing.Size(110, 25);
             this.textBox5.TabIndex = 20;
             this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             this.textBox5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox5_KeyPress);
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(213, 314);
-            this.textBox6.MaxLength = 31;
+            this.textBox6.Location = new System.Drawing.Point(213, 321);
+            this.textBox6.MaxLength = 30;
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 25);
+            this.textBox6.Size = new System.Drawing.Size(110, 25);
             this.textBox6.TabIndex = 21;
             this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(213, 389);
-            this.textBox7.MaxLength = 31;
+            this.textBox7.Location = new System.Drawing.Point(213, 379);
+            this.textBox7.MaxLength = 30;
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 25);
+            this.textBox7.Size = new System.Drawing.Size(110, 25);
             this.textBox7.TabIndex = 22;
             this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
+            this.textBox7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox7_KeyPress);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(210, 127);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(97, 15);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "姓名应为中文";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(210, 296);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(97, 15);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "电话应为数字";
+            // 
+            // label13
+            // 
+            this.label13.Location = new System.Drawing.Point(179, 417);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(192, 24);
+            this.label13.TabIndex = 25;
+            this.label13.Text = "薪水应为数字：（RMB）";
             // 
             // add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
@@ -333,5 +366,8 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }

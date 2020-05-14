@@ -121,6 +121,7 @@
             this.Controls.Add(this.radioButton1);
             this.Name = "check";
             this.Text = "查询工程师信息";
+            this.Load += new System.EventHandler(this.check_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
