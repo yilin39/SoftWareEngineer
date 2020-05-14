@@ -63,7 +63,7 @@ namespace software_engineer
                         bindData();
                         cmd.CommandText = "delete from manager where id=@id";
                         int rowCount = cmd.ExecuteNonQuery();
-                        if (rowCount == 1)
+                        if (rowCount >= 1)
                         {
                             MessageBox.Show("编号：【" + this.textBox1.Text + "】用户删除成功！");
                             textBox1.Text = "";
@@ -100,7 +100,7 @@ namespace software_engineer
                         bindData();
                         cmd.CommandText = "delete from manager where name=@name";
                         int rowCount = cmd.ExecuteNonQuery();
-                        if (rowCount == 1)
+                        if (rowCount >= 1)
                         {
                             MessageBox.Show("【" + this.textBox1.Text + "】用户删除成功！");
                             textBox1.Text = "";
